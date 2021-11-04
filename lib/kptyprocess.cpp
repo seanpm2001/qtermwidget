@@ -119,7 +119,7 @@ KPtyDevice *KPtyProcess::pty() const
     return d->pty;
 }
 
-void KPtyProcess::setupChildProcess()
+void KPtyProcess::setupChildProcess_()
 {
     Q_D(KPtyProcess);
 
@@ -138,7 +138,8 @@ void KPtyProcess::setupChildProcess()
     if (d->ptyChannels & StderrChannel)
         dup2(d->pty->slaveFd(), 2);
 
-    KProcess::setupChildProcess();
+    // https://phabricator.kde.org/T13940
+    // KProcess::setupChildProcess();
 }
 
 //#include "kptyprocess.moc"

@@ -144,7 +144,7 @@ protected:
     /**
      * @reimp
      */
-    void setupChildProcess() override;
+    virtual void setupChildProcess_();
 
 private:
     Q_PRIVATE_SLOT(d_func(), void _k_onStateChanged(QProcess::ProcessState))
